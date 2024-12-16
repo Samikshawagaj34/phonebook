@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phonebook</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    
     <style>
         body{
             background-color: #ffe0cc;
@@ -42,6 +42,7 @@
             width: 140px;
             height: 40px;
             border-radius: 5px;
+            cursor: pointer;
         }
         #result
         {
@@ -55,38 +56,38 @@
 <body>
     <div class="container">
     <h1 class="heading">Contact Book</h1>
-    <input  type="text" class="search" id="search" placeholder="Search contacts" required >
+    <input  type="text" class="search" id="new" placeholder="Search contacts" required >
    <button type="button" class="btn" onclick="search()">search</button>
     <p id="result"></p>
 </div>
 </body>
 <script>
-    const contacts =
+    let contacts =
     {
         samiksha: "9875644345",
-        Pranali:"12345677895",
-        Sita:"4567892342",
-        Gita:  "4563783388"
+        pranali:"12345677895",
+        sita:"4567892342",
+        gita:  "4563783388"
 
 
-    }
+    };
     function search()
     {
-        const searchInput = document.getElementById("search");
-         const query = searchInput.value.toLowerCase();
+        let searchInput = document.getElementById("new").value;
+         
 
-         const mobile = contacts[query]
+         let mobile = contacts[searchInput];
 
-         const result = document.getElementById("result");
+         let result = document.getElementById("result");
 
          if(mobile)
          {
-            result.innerText = `Mobile  number of ${query} is ${mobile} `;
+            result.innerHTML = `Mobile  number of ${searchInput} is ${mobile} `;
             
          }
          else
          {
-            result.innerText = `Contact not found`;
+            result.innerHTML = "Contact not found";
 
          }
     }
